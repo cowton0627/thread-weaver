@@ -207,6 +207,21 @@ thread-weaver/
 
 ---
 
+## Security
+
+使用前請留意以下三點，這些是工具本身擋不掉、需要你自己注意的風險：
+
+- **不要 commit `.env`。**
+  `.gitignore` 已經擋住 `.env`，但請不要手動 `git add .env`，也不要為了方便而放寬規則。commit 前養成 `git status` 確認的習慣，並優先用 `git add <具體檔名>` 而非 `git add -A`。
+
+- **不要把「未發表的草稿」貼到第三方 AI 服務。**
+  把 `AGENTS.md` / `CLAUDE.md` 規則檔貼到 ChatGPT / Claude.ai / Gemini 免費版沒問題（規則本來就公開），但若連同自己還沒發表的文章一起貼，那篇內容可能被該服務留 log 或拿去訓練。用網頁版 AI 處理草稿前，先確認該服務的資料使用條款，或改走 agentic CLI 路徑。
+
+- **Threads token 一旦外洩，立刻去 Meta 後台 revoke。**
+  `THREADS_ACCESS_TOKEN` 等同你 Threads 帳號的發文權限。若不小心貼到 chat、log、截圖、或 commit 進 git，請馬上到 [Meta for Developers](https://developers.facebook.com/) 後台撤銷該 token 並重發一組，不是只改 `.env` 就好。
+
+---
+
 ## 相關文件
 
 | 文件 | 用途 |
