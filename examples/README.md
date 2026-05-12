@@ -1,6 +1,6 @@
 # Examples
 
-這個資料夾示範 `threads-publisher` 的輸入與輸出長相，
+這個資料夾示範 `thread-weaver` 的輸入與輸出長相，
 讓你不用拿到 Threads token、不用設 S3，也能先看懂這個工具到底在做什麼。
 
 ## 檔案

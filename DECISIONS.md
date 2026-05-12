@@ -1,4 +1,4 @@
-# Threads Publisher — 設計決策紀錄
+# Thread Weaver — 設計決策紀錄
 
 本文件記錄：
 

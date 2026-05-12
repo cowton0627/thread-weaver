@@ -1,6 +1,6 @@
 # 用 Claude Code 整理一週 PR 的心得
 
-> 這是一個假的範例文章，用來示範 `threads-publisher` 的輸入輸出格式。
+> 這是一個假的範例文章，用來示範 `thread-weaver` 的輸入輸出格式。
 
 ## 起因
 
