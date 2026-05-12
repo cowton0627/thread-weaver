@@ -1,0 +1,6 @@
+requests>=2.31
+python-dotenv>=1.0
+
+# 僅在使用 IMAGE / CAROUSEL（需要上傳本機圖片到 S3）時才實際被 import。
+# 純文字使用者可以選擇不裝；但預設一起裝最省事。
+boto3>=1.34

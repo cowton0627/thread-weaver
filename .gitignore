@@ -1,0 +1,30 @@
+# ===== 環境與憑證 =====
+.env
+
+# ===== Python =====
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# ===== macOS =====
+.DS_Store
+
+# ===== 個人草稿與素材（每位使用者各自不同，不進 repo）=====
+drafts/*
+!drafts/.gitkeep
+
+assets/*
+!assets/.gitkeep
+
+# ===== 執行結果（衍生產物，不要 commit）=====
+output/*
+!output/.gitkeep
+
+# ===== IDE / 編輯器 =====
+.obsidian/
+.vscode/
+.idea/
+.cursor/

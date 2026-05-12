@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "index": 1,
+      "media_type": "TEXT",
+      "topic_tag": "AI 工作流",
+      "text": "每週回顧團隊 PR 原本要花 1～2 小時。\n\n試了一個小改造之後降到 20 分鐘:用 Claude Code 幫忙先分群、再精簡,最後才產出 digest。\n\n關鍵不是「請 AI 寫週報」這句 prompt,而是把任務拆細到它真的能做好的程度。"
+    },
+    {
+      "index": 2,
+      "media_type": "TEXT",
+      "topic_tag": "AI 工作流",
+      "text": "具體做法分三步:\n\n1. 把 PR 列表依影響範圍分類(infra / feature / fix / chore)\n2. 在每個群組內標出需要 follow-up 的項目\n3. 最後才合成對外的 weekly digest 草稿\n\n一步一步分解,而不是一句話請它總結全部。"
+    },
+    {
+      "index": 3,
+      "media_type": "TEXT",
+      "topic_tag": "AI 工作流",
+      "text": "幾個踩坑:\n\n• 不要把整個 repo 餵給它,挑相關目錄即可\n• 對 lock file、build artifacts 要明確排除\n• 「誰負責什麼」這類敘述一定要人工 review\n\nAI 不是用來免去判斷,而是把判斷集中在真正需要的地方。"
+    },
+    {
+      "index": 4,
+      "media_type": "TEXT",
+      "topic_tag": "AI 工作流",
+      "text": "省下的時間拿來寫文章剛剛好。\n\n完整 prompt 模板和更多細節寫在 Medium:\nhttps://medium.com/example/weekly-pr-digest"
+    }
+  ]
+}
