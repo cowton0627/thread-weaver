@@ -22,6 +22,12 @@ S3_BUCKET = os.getenv("S3_BUCKET")
 S3_PUBLIC_BASE_URL = os.getenv("S3_PUBLIC_BASE_URL")
 
 
+def redact_token(text: str) -> str:
+    if ACCESS_TOKEN and ACCESS_TOKEN in text:
+        return text.replace(ACCESS_TOKEN, "<redacted-access-token>")
+    return text
+
+
 def posts_need_s3(posts: list[dict]) -> bool:
     """Return True if any post requires uploading a local image to S3."""
     for post in posts:
@@ -122,7 +128,7 @@ def post_to_threads(data: dict) -> dict:
     try:
         response.raise_for_status()
     except requests.HTTPError as error:
-        raise RuntimeError(f"Create container failed: {response.text}") from error
+        raise RuntimeError(f"Create container failed: {redact_token(response.text)}") from error
 
     return response.json()
 
@@ -142,7 +148,7 @@ def publish_container(container_id: str) -> str:
     try:
         response.raise_for_status()
     except requests.HTTPError as error:
-        raise RuntimeError(f"Publish failed: {response.text}") from error
+        raise RuntimeError(f"Publish failed: {redact_token(response.text)}") from error
 
     payload = response.json()
 
