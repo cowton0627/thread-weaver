@@ -41,7 +41,7 @@ def main() -> None:
     print("\nDone.")
     print("Next:")
     print("  claude")
-    print("  請依照 CLAUDE.md，讀取 drafts/article.md，重新產生 output/threads_draft.json。先不要發文。")
+    print("  請依照 AGENTS.md，讀取 drafts/article.md，重新產生 output/threads_draft.json。先不要發文。")
 
 
 if __name__ == "__main__":

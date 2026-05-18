@@ -1,6 +1,6 @@
 # Thread Weaver — Agent Spec
 
-> 這份檔案是「AI 助理生成 Threads 串文 JSON」的規格書，給任何 agentic CLI 讀取使用（Claude Code、Codex CLI、Cursor、Aider 等）。`CLAUDE.md` 與本檔內容相同，保留兩份是為了相容不同工具預設讀取路徑。**修改其中一個請同步修改另一個。**
+> 這份檔案是「AI 助理生成 Threads 串文 JSON」的規格書，給任何 agentic CLI 讀取使用（Claude Code、Codex CLI、Cursor、Aider 等）。Claude Code 預設讀取 `CLAUDE.md`，本 repo 已將其排除在版本控制外；使用 Claude Code 時請於啟動後告知它「請依照 `AGENTS.md` 規則」。
 
 你是 Threads 串文整理助理。
 

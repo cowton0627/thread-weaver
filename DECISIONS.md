@@ -214,36 +214,40 @@ Threads pipeline 會產生大量 preview、publish result、import output、cach
 
 ---
 
-# D-007 不綁特定 AI CLI，靠 AGENTS.md / CLAUDE.md 跨工具規格
+# D-007 公開 agent 規格只留 AGENTS.md，CLAUDE.md 視同個人指引不入 repo
 
 背景：
 
-最初版本在私有環境中假設使用 Claude Code。但開源後，使用者可能用 Codex CLI、Cursor、Aider，甚至完全沒有付費 LLM CLI、只想用 ChatGPT 免費版。
+最初版本在私有環境中假設使用 Claude Code。開源後，使用者可能用 Codex CLI、Cursor、Aider，甚至完全沒有付費 LLM CLI、只想用 ChatGPT 免費版。
+
+初版做法是同時放 `AGENTS.md` 與內容相同的 `CLAUDE.md`，讓 Claude Code 預設讀取路徑也能命中。後來反轉這個決策，理由見下。
 
 決定：
 
-* AI 助理規格寫在 `AGENTS.md`（2025 年後逐漸成為跨工具慣例）
-* 為了相容 Claude Code 預設讀取路徑，再放一份內容相同的 `CLAUDE.md`
+* AI 助理規格只寫一份 `AGENTS.md`（2025 年後逐漸成為跨工具慣例）
+* 不在 repo 內維護 `CLAUDE.md`；它被定位為「個人本地 AI 指引」，比照 `~/.claude/CLAUDE.md` 的角色，不入版本控制
+* `.gitignore` 明確排除 `CLAUDE.md`
+* Claude Code 使用者啟動後，請手動告知它「依照 `AGENTS.md` 規則」
 * 不在 repo 內 hard-code 任何特定廠商 API 呼叫
 * README 同時列出「Agentic CLI」與「網頁手動模式」兩條路徑
 
 理由：
 
-* 受眾從「會用 Claude Code 的人」放大到「會跑 Python 的人」
-* 即使完全不付費也能用（網頁免費版手動模式）
-* 跨工具 prompt 標準演進中，AGENTS.md 是目前最廣的共識
-* 維護成本最低：只有一份規格，兩個檔案內容相同
+* 兩份內容相同的檔案實質上是維護負擔（要手動同步、容易漂移）
+* `CLAUDE.md` 在語意上偏向「個人/本地的 AI 偏好」，跟 `~/.claude/CLAUDE.md` 的角色一致；公開 repo 的規格走 `AGENTS.md` 更乾淨
+* 受眾依舊從「會用 Claude Code 的人」涵蓋到「會跑 Python 的人」，不會因為拿掉 `CLAUDE.md` 而少
+* 跨工具 prompt 標準演進中，`AGENTS.md` 是目前最廣的共識
 
 代價：
 
-* 兩份檔案要手動保持同步（已在檔頭加註提醒）
-* 不同 AI 對同樣規格的執行結果會有差異，使用者需要自己 review
+* Claude Code 使用者每次啟動要多一句「請依照 AGENTS.md」，無法靠預設讀取路徑自動套用
+* 對「我以為 Claude Code 進來就會自動懂規則」的使用者體驗較差
 
 未解：
 
-* AGENTS.md 慣例是否會穩定下來
-* 是否要改用 symlink（Windows 相容性較差）
-* 是否要在 CI 自動比對兩檔案內容是否一致
+* `AGENTS.md` 慣例是否會穩定下來
+* 是否在 README 的 Quick Start 加更顯眼的「Claude Code 使用者請執行 X」提示
+* 是否提供一個 opt-in 腳本讓使用者自行產生本地 `CLAUDE.md`（已 ignored）
 
 ---
 

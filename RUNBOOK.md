@@ -69,7 +69,7 @@ which python3
 
 | 層級 | 限制 |
 |------|------|
-| `AGENTS.md` / `CLAUDE.md` 規則 | 450 |
+| `AGENTS.md` 規則 | 450 |
 | `check_draft.py` 驗證 | 430 |
 | Threads API 實際上限 | 500 |
 
